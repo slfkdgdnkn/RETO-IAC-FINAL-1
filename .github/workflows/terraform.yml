@@ -48,11 +48,11 @@ jobs:
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
           aws-region: ${{ inputs.aws-region }}
 # configurar la eliminacion de IaC
-      - name: Read destroy configuration
-        id: read-destroy-config
-        run: |
-          DESTROY="$(jq -r '.${{ inputs.environment }}' ./infra/destroy_config.json)"
-          echo "destroy=$(echo $DESTROY)" >> $GITHUB_OUTPUT
+#      - name: Read destroy configuration
+#        id: read-destroy-config
+#        run: |
+#          DESTROY="$(jq -r '.${{ inputs.environment }}' ./infra/destroy_config.json)"
+#          echo "destroy=$(echo $DESTROY)" >> $GITHUB_OUTPUT
 
 # inicializar le proyecto de terraform dentro del pipeline, e indicar donde se encuentra la informacion del S3, la dynamo y la region configurada en los archivos .tf
       - name: Terraform Init
